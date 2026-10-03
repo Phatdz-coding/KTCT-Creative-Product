@@ -31,3 +31,25 @@ p {
   line-height: 1.6;
   font-size: clamp(1rem, 2.5vw, 1.125rem);
 }
+
+.button-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.65rem 1rem;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+.button-link:hover {
+  background: #1d4ed8;
+}
+.definition-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  line-height: 1.6;
+}
+.definition-list li + li {
+  margin-top: 0.6rem;
+}
