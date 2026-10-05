@@ -32,6 +32,10 @@ describe('presentation flow', () => {
   test('landing leads into the simulator', () => {
     useSimulatorStore.setState({ view: 'landing' })
     render(<App />)
+    expect(screen.getByRole('link', { name: /Các định nghĩa Mác-xít cơ bản/ })).toHaveAttribute(
+      'href',
+      '/marxism.html',
+    )
     click('Bắt đầu thuyết trình')
     expect(screen.getByRole('heading', { name: 'Quán cà phê cơ sở' })).toBeInTheDocument()
     expect(screen.getByText('Chưa có kết quả')).toBeInTheDocument()

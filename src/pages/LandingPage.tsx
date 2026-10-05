@@ -46,6 +46,10 @@ export function LandingPage({ onOpenTheory }: { onOpenTheory(): void }) {
           <Button size="large" onClick={onOpenTheory}>
             Lý thuyết &amp; giả định
           </Button>
+          {/* A separate static page (public/marxism.html), in English. */}
+          <a className={styles.landingLink} href="/marxism.html" hrefLang="en">
+            Các định nghĩa Mác-xít cơ bản (tiếng Anh) →
+          </a>
         </div>
 
         <p className={styles.landingDisclaimer}>{DISCLAIMER}</p>
