@@ -5,3 +5,5 @@ test-results
 package-lock.json
 docs
 LICENSE
+public/marxism.html
+public/marxism.css
