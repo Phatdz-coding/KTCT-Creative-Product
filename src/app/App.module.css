@@ -1,0 +1,12 @@
+.shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+/* On desktop the simulator is a fixed presentation frame: no page scroll. */
+@media (min-width: 1144px) {
+  .shell {
+    height: 100dvh;
+  }
+}

@@ -1,0 +1,489 @@
+/* Landing */
+.landing {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+  padding: var(--space-6) var(--space-4);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(189, 69, 24, 0.09), transparent 40%),
+    radial-gradient(circle at 88% 92%, rgba(43, 107, 97, 0.1), transparent 42%), var(--paper);
+}
+
+.landingInner {
+  display: grid;
+  gap: var(--space-5);
+  width: min(56rem, 100%);
+}
+
+.eyebrow {
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.landingTitle {
+  font-size: clamp(3rem, 9vw, 5.6rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--espresso);
+}
+
+.landingLead {
+  max-width: 34em;
+  font-size: 1.25rem;
+  color: var(--ink-soft);
+}
+
+.question {
+  margin: 0;
+  padding: var(--space-4) var(--space-5);
+  border-left: 4px solid var(--m);
+  border-radius: 4px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  line-height: 1.4;
+}
+
+.questionLabel {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--m);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stepCard {
+  display: grid;
+  gap: 3px;
+  align-content: start;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.stepCard strong {
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.stepNumber {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--m);
+}
+
+.landingActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.landingDisclaimer {
+  max-width: 60em;
+  font-size: 0.84rem;
+  color: var(--ink-soft);
+}
+
+/* Presentation */
+.presentation {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  padding: var(--space-4);
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  min-width: 0;
+  min-height: 0;
+}
+
+.scenarioCard {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.scenarioTitle {
+  font-size: 1.55rem;
+  color: var(--espresso);
+}
+
+.scenarioText {
+  font-size: 0.98rem;
+  color: var(--ink-soft);
+}
+
+/* The scene keeps its 2:1 shape and takes whatever height is left over. */
+.sceneFrame {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  min-height: 8rem;
+  container-type: size;
+  aspect-ratio: 2 / 1;
+}
+
+.labourCard {
+  position: relative;
+  padding: 0.5rem 0.8rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  transition:
+    opacity 200ms,
+    filter 200ms;
+}
+
+.staleBlock {
+  opacity: 0.45;
+  filter: grayscale(0.85);
+}
+
+.labourTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.3rem;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.labourTrack {
+  display: grid;
+  place-items: center;
+  height: 2rem;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-small);
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+.labourClock {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.1rem;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+/* Matches the height of the real bar's legend so nothing jumps when the result arrives. */
+.labourPlaceholder {
+  padding-bottom: 1.6rem;
+}
+
+.discussion {
+  display: grid;
+  gap: 0.3rem;
+  align-content: start;
+  min-height: 3.9rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-size: 0.96rem;
+}
+
+.discussionLabel {
+  margin-right: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--m);
+}
+
+.discussionQuestion {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.3rem var(--space-5);
+  border-top: 1px solid var(--line);
+  font-size: 0.84rem;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.footerLink {
+  padding: 0.15rem 0;
+  border: 0;
+  background: none;
+  font-weight: 600;
+  color: var(--espresso);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Tablet: controls beside the stage, analysis full width below. */
+@media (min-width: 768px) {
+  .columns {
+    grid-template-columns: minmax(280px, 320px) 1fr;
+  }
+
+  .columns > :last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Desktop: three columns on the 88 × 45 rem presentation canvas (see globals.css).
+   Nothing scrolls; panels only fall back to inner scrolling in very short windows. */
+@media (min-width: 1144px) {
+  .columns {
+    grid-template-columns: 20rem minmax(0, 1fr) 33.5rem;
+    flex: 1;
+    gap: 1.1rem;
+    min-height: 0;
+    padding: 0.7rem 1.2rem;
+  }
+
+  .columns > :last-child {
+    grid-column: auto;
+  }
+
+  .sceneFrame {
+    flex: 1 1 0;
+    aspect-ratio: auto;
+  }
+}
+
+/* Compare */
+.compare {
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+  flex: 1;
+  padding: var(--space-4) var(--space-5);
+  overflow-y: auto;
+}
+
+.compareHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.compareHead h1 {
+  font-size: 1.7rem;
+  color: var(--espresso);
+}
+
+.compareGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 1100px) {
+  .compareGrid {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  }
+}
+
+.sheet {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+  min-width: 0;
+  padding: var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.sheetTitle {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.sheetTitle:not(:first-child) {
+  margin-top: var(--space-2);
+}
+
+.muted {
+  color: var(--ink-soft);
+}
+
+.diffList {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.diffItem {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: 7px 12px;
+  border-left: 3px solid var(--m);
+  border-radius: 3px;
+  background: var(--m-soft);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.table th,
+.table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line);
+  text-align: right;
+  vertical-align: baseline;
+}
+
+.table th:first-child {
+  text-align: left;
+}
+
+.table thead th {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.table tbody th {
+  font-weight: 500;
+}
+
+.table tbody td {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.deltaCell {
+  color: var(--espresso);
+}
+
+.tagA,
+.tagB {
+  display: inline-grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
+  border-radius: 4px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--on-dark);
+}
+
+.tagA {
+  background: var(--c);
+}
+
+.tagB {
+  background: var(--m);
+}
+
+.labourPair {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.labourLabel {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.compareEmpty {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: start;
+  align-content: center;
+  flex: 1;
+  width: min(640px, 100%);
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+}
+
+.compareEmpty h1 {
+  font-size: 2rem;
+  color: var(--espresso);
+}
+
+.compareHowTo {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding-left: 1.3em;
+}
+
+@media (max-width: 767px) {
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .compare {
+    padding: var(--space-4);
+  }
+
+  .table {
+    font-size: 0.84rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 6px 4px;
+  }
+
+  .table tbody td {
+    white-space: normal;
+  }
+}

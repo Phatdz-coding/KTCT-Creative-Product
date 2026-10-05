@@ -1,0 +1,248 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-small);
+  background: var(--surface);
+  font-weight: 600;
+  font-size: 0.93rem;
+  line-height: 1.2;
+  cursor: pointer;
+  transition:
+    background 120ms,
+    border-color 120ms,
+    transform 80ms;
+}
+
+.button:hover:not(:disabled) {
+  background: var(--surface-sunken);
+  border-color: var(--espresso);
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.primary {
+  background: var(--espresso);
+  border-color: var(--espresso);
+  color: var(--on-dark);
+}
+
+.primary:hover:not(:disabled) {
+  background: #3a1f10;
+  border-color: #3a1f10;
+}
+
+.ghost {
+  border-color: transparent;
+  background: transparent;
+}
+
+.large {
+  padding: 0.65rem 1.1rem;
+  font-size: 1.05rem;
+}
+
+.block {
+  width: 100%;
+}
+
+/* Info tooltip */
+.tip {
+  display: inline-flex;
+}
+
+.tipButton {
+  position: relative;
+  width: 1.15rem;
+  height: 1.15rem;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: help;
+}
+
+/* Invisible padding so the small "?" is still an easy target. */
+.tipButton::before {
+  position: absolute;
+  inset: -5px;
+  content: '';
+}
+
+/* No top/left: the bubble keeps its in-flow vertical position and stretches across
+   the nearest positioned ancestor, so it can never be clipped by a narrow column. */
+.tipBubble {
+  position: absolute;
+  right: 4px;
+  left: 4px;
+  z-index: 20;
+  max-width: 30rem;
+  margin-top: 1.6rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-small);
+  background: var(--ink);
+  color: var(--on-dark);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-align: left;
+  text-transform: none;
+  white-space: normal;
+  box-shadow: var(--shadow);
+  display: none;
+  pointer-events: none;
+}
+
+.tip:hover .tipBubble,
+.tip:focus-within .tipBubble {
+  display: block;
+}
+
+/* App header */
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding: 0.5rem var(--space-5);
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.brand {
+  display: flex;
+  flex: none;
+  align-items: baseline;
+  white-space: nowrap;
+  gap: var(--space-3);
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.brandName {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--espresso);
+}
+
+.brandTag {
+  font-size: 0.84rem;
+  color: var(--ink-soft);
+}
+
+.nav {
+  display: flex;
+  gap: var(--space-1);
+  margin-left: auto;
+}
+
+.navItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-small);
+  background: transparent;
+  font-weight: 600;
+  font-size: 0.93rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.navItem:hover {
+  background: var(--surface-sunken);
+  color: var(--ink);
+}
+
+.navItemActive {
+  border-color: var(--line-strong);
+  background: var(--surface-sunken);
+  color: var(--ink);
+}
+
+.kbd {
+  padding: 0 0.35rem;
+  border: 1px solid currentcolor;
+  border-radius: 0.25rem;
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.4;
+  opacity: 0.7;
+}
+
+.badge {
+  display: inline-grid;
+  place-items: center;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--line-strong);
+}
+
+.badgeFilled {
+  border-color: var(--espresso);
+  background: var(--espresso);
+  color: var(--on-dark);
+}
+
+@media (max-width: 767px) {
+  .header {
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    padding: 10px var(--space-4);
+  }
+
+  .brandTag {
+    display: none;
+  }
+}
+
+/* The tagline is the first thing to go when the header gets tight. */
+@media (max-width: 1023px) {
+  .brandTag {
+    display: none;
+  }
+
+  .header {
+    gap: var(--space-3);
+  }
+}
+
+/* Phones: fullscreen is of little use and the nav has to fit one row. */
+@media (max-width: 767px) {
+  .fullscreenButton {
+    display: none;
+  }
+
+  .nav {
+    margin-left: 0;
+  }
+
+  .navItem {
+    padding-inline: 0.5rem;
+  }
+}
