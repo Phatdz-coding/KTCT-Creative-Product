@@ -11,7 +11,6 @@ import {
   EducationalModal,
   Tip,
   ValueFormula,
-  WhatIfSimulator,
 } from "./components/Education";
 import { useSimulation } from "./hooks/useSimulation";
 import { baseline, calculate, clock, money } from "./lib/economics";
@@ -34,7 +33,7 @@ export default function App() {
             <p>
               1. Thiết lập quán, bắt đầu ca và quan sát các barista. 2. Theo dõi
               số ly, doanh thu và chi phí. 3. Tiếp tục sau câu hỏi giữa ca. 4.
-              Kết thúc ca để mở What If và thử thay đổi các điều kiện.
+              Kết thúc ca để xem tổng kết và công thức giá trị.
             </p>
             <p>
               Một ca trong quán ≈ 48 giây ở tốc độ 1×, chưa tính thời gian tạm
@@ -186,19 +185,15 @@ export default function App() {
                   </div>
                 ))}
               </div>
-              <a href="#what-if" className="button primary">
-                Thử một kịch bản khác ↗
-              </a>
             </section>
             {target.recoveryHours >= scenario.hours && (
               <p className="guide">
                 {target.surplus < 0
-                  ? "Ca này chưa bù đủ tiền lương sau khi trừ nguyên liệu và vận hành. Không có thời gian lao động thặng dư trong ca theo mô hình; hãy thử thay đổi các điều kiện bên dưới."
+                  ? "Ca này chưa bù đủ tiền lương sau khi trừ nguyên liệu và vận hành. Không có thời gian lao động thặng dư trong ca theo mô hình."
                   : "Ca này chỉ bù đủ tiền lương khi kết thúc; không còn thời gian lao động thặng dư trong ca."}
               </p>
             )}
             <ValueFormula scenario={scenario} />
-            <WhatIfSimulator initialScenario={scenario} />
           </>
         )}
         <footer>
