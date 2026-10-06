@@ -196,6 +196,31 @@ h1 em {
     monospace;
   color: #6a563e;
 }
+.shift-summary {
+  display: grid;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+.shift-summary .eyebrow {
+  font-size: 9px;
+  letter-spacing: 1.3px;
+}
+.shift-summary strong {
+  color: #4f3d29;
+  font:
+    700 14px "Space Mono",
+    monospace;
+}
+.shift-summary strong span,
+.shift-summary small span {
+  color: #a4865c;
+  padding-inline: 4px;
+}
+.shift-summary small {
+  color: #795f40;
+  font-size: 10px;
+}
 .settings-lock {
   font-size: 10px;
   color: #745a3e;
@@ -283,6 +308,24 @@ h1 em {
 .clock > span {
   font-size: 12px;
   color: #7b6344;
+}
+.shift-time-readout {
+  display: grid;
+  gap: 3px;
+  min-width: 132px;
+  font-variant-numeric: tabular-nums;
+}
+.shift-time-readout strong {
+  color: #473723;
+  font:
+    700 14px "Space Mono",
+    monospace;
+  white-space: nowrap;
+}
+.shift-time-readout span {
+  color: #806746;
+  font-size: 10px;
+  white-space: nowrap;
 }
 .status {
   display: inline-flex;
@@ -536,6 +579,26 @@ h1 em {
 .stat-equation span {
   padding: 0 4px;
   color: #65764f;
+}
+.financial-meter {
+  height: 8px;
+  margin-top: 11px;
+  background: #cbd5b8;
+  border: 1px solid #91a276;
+  padding: 1px;
+}
+.financial-meter span {
+  display: block;
+  height: 100%;
+  background: #617a52;
+  transition: width 0.15s linear;
+}
+.cost-meter {
+  background: #dec8b8;
+  border-color: #b58d76;
+}
+.cost-meter span {
+  background: #a16b51;
 }
 .cost-card dl {
   margin: 0;
@@ -1263,6 +1326,22 @@ footer {
   }
   .time-markers {
     font-size: 8px;
+  }
+  .shift-time-readout {
+    min-width: 0;
+    margin-left: auto;
+  }
+  .shift-time-readout strong {
+    font-size: 10px;
+  }
+  .shift-time-readout span {
+    font-size: 8px;
+  }
+  .shift-summary strong {
+    font-size: 11px;
+  }
+  .shift-summary small {
+    font-size: 9px;
   }
   .shop-scene {
     height: 335px;

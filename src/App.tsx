@@ -44,10 +44,16 @@ export default function App() {
           </aside>
         )}
         <div className="settings-toolbar">
-          <span>
-            {target.cups} ly / ca · {scenario.workers} barista ·{" "}
-            {scenario.hours} giờ · {money(scenario.price)}/ly
-          </span>
+          <div className="shift-summary" aria-label="Tóm tắt ca làm">
+            <span className="eyebrow">TÓM TẮT CA LÀM</span>
+            <strong>
+              08:00 – {clock(8 + scenario.hours)} <span>·</span> {target.cups} ly
+            </strong>
+            <small>
+              {scenario.workers} barista <span>·</span> {scenario.hours} giờ
+              <span>·</span> {money(scenario.price)}/ly
+            </small>
+          </div>
           <button
             className="button small"
             aria-expanded={settingsOpen}

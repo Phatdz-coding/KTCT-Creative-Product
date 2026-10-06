@@ -298,24 +298,22 @@ export default function CoffeeShopScene({
             TODAY'S MENU
           </text>
           <path d="M17 38h98" stroke="#acb291" />
-          <text
-            x="18"
-            y="58"
-            fill="#e9deb8"
-            fontSize="12"
-            fontFamily="monospace"
-          >
-            Cà phê {scenario.price / 1000}k
-          </text>
-          <text
-            x="18"
-            y="77"
-            fill="#c0c9a5"
-            fontSize="11"
-            fontFamily="monospace"
-          >
-            Made with ♥
-          </text>
+          <g fontFamily="monospace">
+            <DrinkSprite x={17} y={43} />
+            <text x="38" y="54" fill="#e9deb8" fontSize="9">
+              CÀ PHÊ ĐEN
+            </text>
+            <text x="38" y="66" fill="#c0c9a5" fontSize="8">
+              Đậm vị · {scenario.price / 1000}k
+            </text>
+            <DrinkSprite x={17} y={76} />
+            <text x="38" y="87" fill="#e9deb8" fontSize="9">
+              CÀ PHÊ SỮA
+            </text>
+            <text x="38" y="98" fill="#c0c9a5" fontSize="8">
+              Êm vị · pha tại quầy
+            </text>
+          </g>
         </g>
         {[172, 540, 900].map((x) => (
           <g key={x}>

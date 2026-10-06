@@ -18,7 +18,7 @@ export default function ShiftHUD({
           <Clock3 size={23} aria-hidden="true" />
         </span>
         <strong>
-          Tiến độ ca làm<small>{duration} GIỜ · 1 CA LÀM</small>
+          Tiến độ ca làm
         </strong>
       </div>
       <div className="shift-track">
@@ -39,9 +39,10 @@ export default function ShiftHUD({
           ))}
         </div>
       </div>
-      <span className="clock">
-        {clock(hours)} <span>/ {clock(duration)}</span>
-      </span>
+      <div className="shift-time-readout">
+        <strong>08:00 – {clock(8 + duration)}</strong>
+        <span>Đã trôi qua {clock(hours)}</span>
+      </div>
       <span className={`status ${state}`} role="status">
         <span />
         {

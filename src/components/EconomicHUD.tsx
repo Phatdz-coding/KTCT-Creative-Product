@@ -54,7 +54,8 @@ export default function EconomicHUD({
         tip="Mỗi ly pha xong được giả định bán ngay trong mô hình."
       >
         <p>
-          Mục tiêu <strong>{target} ly / ca</strong>
+          <span>Tiến độ pha chế</span>
+          <strong>{values.cups} / {target} ly</strong>
         </p>
         <div className="mini-progress">
           <div style={{ transform: `scaleX(${values.cups / target})` }} />
@@ -70,6 +71,9 @@ export default function EconomicHUD({
         <p>Giá bán × số ly đã pha</p>
         <div className="stat-equation">
           {money(scenario.price)} <span>×</span> {values.cups} ly
+        </div>
+        <div className="financial-meter" aria-label="Doanh thu hiện tại">
+          <span style={{ width: `${Math.min(100, (values.revenue / Math.max(1, calculate(scenario).revenue)) * 100)}%` }} />
         </div>
       </StatCard>
       <StatCard
@@ -98,6 +102,9 @@ export default function EconomicHUD({
             <dd>{money(values.wages)}</dd>
           </div>
         </dl>
+        <div className="financial-meter cost-meter" aria-label="Chi phí dự kiến">
+          <span style={{ width: `${Math.min(100, (values.totalCost / Math.max(1, calculate(scenario).totalCost)) * 100)}%` }} />
+        </div>
       </StatCard>
       <StatCard
         tone="surplus"
