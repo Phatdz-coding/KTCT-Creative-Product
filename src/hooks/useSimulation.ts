@@ -7,6 +7,7 @@ export function useSimulation(scenario: Scenario) {
   const [speed, setSpeed] = useState(1);
   const [revealed, setRevealed] = useState(false);
   const [question, setQuestion] = useState(false);
+  const [exhaustion, setExhaustion] = useState(false);
   const recovery = calculate(scenario).recoveryHours;
   useEffect(() => {
     if (state !== "running") return;
@@ -27,7 +28,10 @@ export function useSimulation(scenario: Scenario) {
   }, [state, speed, revealed, recovery, scenario.hours]);
   useEffect(() => {
     if (state !== "running") return;
-    if (hours >= scenario.hours) setState("completed");
+    if (hours >= scenario.hours) {
+      setState("completed");
+      setExhaustion(calculate(scenario).unfinishedCups > 0);
+    }
     else if (!revealed && hours >= recovery) {
       setQuestion(true);
       setState("paused");
@@ -38,6 +42,7 @@ export function useSimulation(scenario: Scenario) {
     setHours(0);
     setRevealed(false);
     setQuestion(false);
+    setExhaustion(false);
     setSpeed(1);
   };
   return {
@@ -46,11 +51,13 @@ export function useSimulation(scenario: Scenario) {
     speed,
     revealed,
     question,
+    exhaustion,
     values: calculate(scenario, hours),
     start: () => setState("running"),
     pause: () => setState("paused"),
     fast: () => setSpeed((s) => (s === 4 ? 1 : s * 2)),
     reset,
+    dismissExhaustion: () => setExhaustion(false),
     resume: () => {
       setQuestion(false);
       setRevealed(true);

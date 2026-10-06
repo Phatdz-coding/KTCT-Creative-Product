@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { BatteryWarning } from "lucide-react";
 import { calculate, clock, money, type Scenario } from "../lib/economics";
 export function Tip({ text }: { text: string }) {
   return (
@@ -55,6 +56,58 @@ export function EducationalModal({
         </p>
         <button ref={button} className="button primary" onClick={onContinue}>
           Tiếp tục quan sát →
+        </button>
+      </section>
+    </div>
+  );
+}
+export function ExhaustionModal({
+  completed,
+  target,
+  onContinue,
+}: {
+  completed: number;
+  target: number;
+  onContinue: () => void;
+}) {
+  const button = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    const previous = document.activeElement as HTMLElement;
+    button.current?.focus();
+    return () => previous?.focus();
+  }, []);
+  return (
+    <div className="modal-backdrop">
+      <section
+        className="education-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="exhaustion-title"
+        onKeyDown={(e) => {
+          if (e.key === "Tab") {
+            e.preventDefault();
+            button.current?.focus();
+          }
+        }}
+      >
+        <span className="eyebrow">KHỐI LƯỢNG CÔNG VIỆC VƯỢT QUÁ SỨC NGƯỜI</span>
+        <div className="modal-cup">
+          <BatteryWarning size={44} aria-hidden="true" />
+        </div>
+        <h2 id="exhaustion-title">Barista đã kiệt sức.</h2>
+        <p>
+          Anh ấy đã làm hết khả năng và pha được <strong>{completed}</strong> /{" "}
+          <strong>{target} ly</strong> trong ca này.
+        </p>
+        <blockquote>
+          Còn {target - completed} ly chưa hoàn thành. Một người không thể đáp
+          ứng khối lượng công việc này trong thời gian đã định.
+        </blockquote>
+        <p className="muted">
+          Hãy giảm mục tiêu hoặc tăng số barista để phân bổ công việc hợp lý.
+        </p>
+        <button ref={button} className="button primary" onClick={onContinue}>
+          Xem kết quả ca làm →
         </button>
       </section>
     </div>

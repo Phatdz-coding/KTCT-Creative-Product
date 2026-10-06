@@ -40,7 +40,7 @@ const toDraft = (s: Scenario) =>
   Object.fromEntries(
     fields.map((f) => [
       f.key,
-      String(f.key === "cups" ? calculate(s).cups : s[f.key]),
+      String(f.key === "cups" ? calculate(s).targetCups : s[f.key]),
     ]),
   ) as Record<keyof Settings, string>;
 

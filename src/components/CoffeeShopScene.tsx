@@ -1,5 +1,5 @@
 import { Coffee, Sun, Users } from "lucide-react";
-import { clock, money, type Scenario } from "../lib/economics";
+import { calculate, clock, money, type Scenario } from "../lib/economics";
 import {
   cafeTables,
   deliveryFrame,
@@ -173,19 +173,11 @@ export default function CoffeeShopScene({
   speed?: number;
 }) {
   const entrance = entranceFrame(hours, scenario.hours);
-  const totalCups = Math.floor(
-    scenario.hours * scenario.workers * scenario.productivity + 1e-8,
-  );
+  const totalCups = calculate(scenario).cups;
   const visits = cafeTables.map((_, i) =>
     tableVisitFrame(hours, scenario.hours, totalCups, i),
   );
-  const delivery = deliveryFrame(
-    hours,
-    scenario.hours,
-    Math.floor(
-      scenario.hours * scenario.workers * scenario.productivity + 1e-8,
-    ),
-  );
+  const delivery = deliveryFrame(hours, scenario.hours, totalCups);
   return (
     <div
       className={`shop-scene ${running ? "is-running" : ""}`}

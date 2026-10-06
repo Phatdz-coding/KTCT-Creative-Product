@@ -42,7 +42,7 @@ export default function EconomicHUD({
   scenario: Scenario;
   values: ReturnType<typeof calculate>;
 }) {
-  const target = calculate(scenario).cups;
+  const target = calculate(scenario).targetCups;
   return (
     <section className="economic-grid" aria-label="Các chỉ số kinh tế">
       <StatCard

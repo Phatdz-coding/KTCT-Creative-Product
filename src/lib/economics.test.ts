@@ -67,11 +67,19 @@ test("configured cup target determines productivity and full-shift totals", () =
 });
 test("arbitrary integer cup targets are reached without rounding loss", () => {
   for (const cups of [1, 37, 121, 997, 1000]) {
-    for (const workers of [1, 3, 6]) {
+    for (const workers of [3, 6]) {
       const s = scenarioForCups({ ...baseline, hours: 7, workers }, cups);
       assert.equal(calculate(s).cups, cups);
     }
   }
+});
+test("one barista cannot finish a workload above human capacity", () => {
+  const s = scenarioForCups({ ...baseline, workers: 1 }, 100);
+  const v = calculate(s);
+  assert.equal(v.cups, 80);
+  assert.equal(v.targetCups, 100);
+  assert.equal(v.unfinishedCups, 20);
+  assert.equal(v.revenue, 4000000);
 });
 test("live recovery waits for a whole cup sale to cover wages", () => {
   const s = scenarioForCups({ ...baseline, wage: 241000 }, 121);

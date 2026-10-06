@@ -33,8 +33,16 @@ export function scenarioForCups(
   };
 }
 export function calculate(s: Scenario, elapsed = s.hours) {
+  const productivity =
+    s.workers === 1 ? Math.min(s.productivity, 10) : s.productivity;
+  const targetCups = Math.floor(
+    s.hours * s.workers * s.productivity + 1e-8,
+  );
+  const capacityCups = Math.floor(
+    s.hours * s.workers * productivity + 1e-8,
+  );
   const cups = Math.floor(
-    Math.min(Math.max(elapsed, 0), s.hours) * s.workers * s.productivity + 1e-8,
+    Math.min(Math.max(elapsed, 0), s.hours) * s.workers * productivity + 1e-8,
   );
   const revenue = cups * s.price;
   const materialCost = cups * s.material;
@@ -42,16 +50,18 @@ export function calculate(s: Scenario, elapsed = s.hours) {
   const wages = s.workers * s.wage;
   const totalCost = materialCost + operatingCost + wages;
   const hourlyValue =
-    s.workers * s.productivity * (s.price - s.material - s.operating);
+    s.workers * productivity * (s.price - s.material - s.operating);
   const necessaryHours = hourlyValue > 0 ? wages / hourlyValue : Infinity;
   // Live sales count whole cups, so pause only once an actual sale covers wages.
   const contributionPerCup = s.price - s.material - s.operating;
   const recoveryHours =
     hourlyValue > 0
-      ? Math.ceil(wages / contributionPerCup) / (s.workers * s.productivity)
+      ? Math.ceil(wages / contributionPerCup) / (s.workers * productivity)
       : Infinity;
   return {
     cups,
+    targetCups,
+    unfinishedCups: Math.max(0, targetCups - capacityCups),
     revenue,
     materialCost,
     operatingCost,

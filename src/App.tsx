@@ -9,6 +9,7 @@ import CoffeeShopScene from "./components/CoffeeShopScene";
 import ShiftSettings from "./components/ShiftSettings";
 import {
   EducationalModal,
+  ExhaustionModal,
   Tip,
   ValueFormula,
   WhatIfSimulator,
@@ -45,7 +46,7 @@ export default function App() {
         )}
         <div className="settings-toolbar">
           <span>
-            {target.cups} ly / ca · {scenario.workers} barista ·{" "}
+            {target.targetCups} ly / ca · {scenario.workers} barista ·{" "}
             {scenario.hours} giờ · {money(scenario.price)}/ly
           </span>
           <button
@@ -205,6 +206,13 @@ export default function App() {
       </main>
       {sim.question && (
         <EducationalModal hours={sim.hours} onContinue={sim.resume} />
+      )}
+      {sim.exhaustion && (
+        <ExhaustionModal
+          completed={v.cups}
+          target={target.targetCups}
+          onContinue={sim.dismissExhaustion}
+        />
       )}
     </>
   );
