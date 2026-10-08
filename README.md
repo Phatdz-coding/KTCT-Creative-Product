@@ -2,6 +2,10 @@
 
 A local, frontend-only Vietnamese political-economy simulation. Built with React, TypeScript, Vite and hand-built SVG pixel art. The original static demo is preserved in `legacy/`.
 
+## Live Demo
+
+Try the complete product: https://kinh-te-chinh-tri-ktct.vercel.app/
+
 ## Run locally
 
 Requires Node.js 22.13+ (or Node 24+) and npm.
