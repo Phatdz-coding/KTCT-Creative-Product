@@ -116,7 +116,7 @@
 .lp-plus, .lp-equals { display: grid; place-items: center; font: 400 32px "Lora", Georgia, serif; color: #d5b274; }
 .lp-ledger { display: grid; grid-template-columns: 1fr 40px 1fr 40px 1fr; align-items: stretch; margin-top: 26px; padding: 20px; background: #2d211a; border: 2px solid #1f1510; box-shadow: 8px 8px 0 #ccb992; }
 .lp-ledger > span { display: grid; place-items: center; color: #f1d9a8; font-size: 28px; font-weight: 700; }
-.lp-ledger div { display: grid; align-content: center; gap: 8px; padding: 20px 22px; background: #4b3224; border: 1px solid #8a6e52; }
+.lp-ledger div { display: grid; align-content: center; gap: 8px; padding: 20px 22px; background: #6a4a36; border: 1px solid #b18f68; }
 .lp-ledger div > span { color: #f3e4c8; font-size: var(--fs-label); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .lp-ledger strong { color: #fff8e8; font: 700 clamp(20px, 2.2vw, 30px) "Space Mono", monospace; font-variant-numeric: tabular-nums; }
 .lp-ledger small { color: #e0cfb3; font-size: var(--fs-small); line-height: 1.5; }
