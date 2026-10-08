@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap");
 :root {
   font-family: "Be Vietnam Pro", sans-serif;
   color: #433d30;
@@ -52,7 +51,7 @@ a {
   display: flex;
   gap: 12px;
   align-items: center;
-  font-family: Georgia, serif;
+  font-family: "Lora", Georgia, serif;
   font-size: 25px;
   font-weight: 700;
   white-space: nowrap;
@@ -130,7 +129,7 @@ h1 {
   font-weight: 800;
 }
 h1 em {
-  font-family: Georgia, serif;
+  font-family: "Lora", Georgia, serif;
   color: var(--green);
   font-size: 40px;
   font-weight: 500;
