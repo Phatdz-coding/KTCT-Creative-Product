@@ -79,7 +79,7 @@ export default function LandingPage() {
         </section>
 
         <section className="lp-opening" aria-labelledby="opening-title">
-          <span className="lp-section-no">00</span>
+          <span className="lp-section-no">0</span>
           <div>
             <span className="lp-kicker">ĐẶT VẤN ĐỀ</span>
             <h2 id="opening-title">Một giao dịch tưởng như rất đơn giản</h2>
@@ -96,7 +96,7 @@ export default function LandingPage() {
 
         <section className="lp-chapter lp-cooperation" id="hop-tac" aria-labelledby="cooperation-title">
           <div className="lp-chapter-head">
-            <span className="lp-section-no">01</span>
+            <span className="lp-section-no">1</span>
             <div>
               <span className="lp-kicker"><Handshake size={15} aria-hidden="true" /> GÓC NHÌN THỨ NHẤT</span>
               <h2 id="cooperation-title">Hợp tác <em>— hiện tượng bề ngoài</em></h2>
@@ -144,7 +144,7 @@ export default function LandingPage() {
 
         <section className="lp-chapter lp-essence" id="ban-chat" aria-labelledby="essence-title">
           <div className="lp-chapter-head">
-            <span className="lp-section-no">02</span>
+            <span className="lp-section-no">2</span>
             <div>
               <span className="lp-kicker"><Coins size={15} aria-hidden="true" /> GÓC NHÌN KINH TẾ CHÍNH TRỊ</span>
               <h2 id="essence-title">Bóc tách <em>bản chất bên trong</em></h2>
@@ -191,7 +191,7 @@ export default function LandingPage() {
 
         <section className="lp-conclusion" id="ket-luan" aria-labelledby="conclusion-title">
           <div className="lp-conclusion-copy">
-            <span className="lp-section-no">03</span>
+            <span className="lp-section-no">3</span>
             <span className="lp-kicker">TỔNG KẾT</span>
             <h2 id="conclusion-title">Hai góc nhìn.<br />Một quan hệ kinh tế.</h2>
             <div className="lp-compare">
