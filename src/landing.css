@@ -109,13 +109,16 @@
 .lp-partners h3 { margin: 9px 0; font-size: 22px; }
 .lp-partners p { margin: 0; color: #6e5d4d; font-size: 13px; line-height: 1.65; }
 .lp-plus, .lp-equals { display: grid; place-items: center; font: 400 32px "Lora", Georgia, serif; color: #d5b274; }
-.lp-ledger { display: grid; grid-template-columns: 1fr 40px 1fr 40px 1fr; align-items: center; margin-top: 26px; padding: 24px 28px; background: #2d211a; border: 1px solid #7f674f; }
-.lp-ledger > span { text-align: center; color: #b99b73; font-size: 24px; }
-.lp-ledger div { display: grid; gap: 6px; }
-.lp-ledger div > span { color: #c9b9a2; font-size: 11px; }
-.lp-ledger strong { color: #fff4dd; font: 700 clamp(16px, 2vw, 24px) "Space Mono", monospace; }
-.lp-ledger small { color: #9e8b75; font-size: 11px; }
-.lp-ledger .surplus strong { color: #c7d89b; }
+.lp-ledger { display: grid; grid-template-columns: 1fr 40px 1fr 40px 1fr; align-items: stretch; margin-top: 26px; padding: 20px; background: #2d211a; border: 2px solid #1f1510; box-shadow: 8px 8px 0 #ccb992; }
+.lp-ledger > span { display: grid; place-items: center; color: #f1d9a8; font-size: 28px; font-weight: 700; }
+.lp-ledger div { display: grid; align-content: center; gap: 8px; padding: 20px 22px; background: #4b3224; border: 1px solid #8a6e52; }
+.lp-ledger div > span { color: #f3e4c8; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.lp-ledger strong { color: #fff8e8; font: 700 clamp(18px, 2.1vw, 28px) "Space Mono", monospace; font-variant-numeric: tabular-nums; }
+.lp-ledger small { color: #e0cfb3; font-size: 12px; line-height: 1.5; }
+.lp-ledger .surplus { background: #dce3c8; border: 2px solid #81915f; }
+.lp-ledger .surplus > span { color: #3e4938; }
+.lp-ledger .surplus strong { color: #2f4a27; }
+.lp-ledger .surplus small { color: #4a5a3e; }
 .lp-thesis { gap: 14px; margin-top: 30px; padding: 20px 24px; color: #3e4938; background: #dbe2c7; border-left: 5px solid #81915f; font-size: 13px; line-height: 1.65; }
 .lp-thesis svg { flex: 0 0 auto; }
 .lp-turn { display: grid; place-items: center; gap: 16px; padding: 42px 24px; color: #795530; background: #d7bd8e; border-block: 1px solid #b38f5c; font-size: 11px; font-weight: 800; letter-spacing: .2em; }
