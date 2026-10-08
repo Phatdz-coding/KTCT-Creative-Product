@@ -34,9 +34,9 @@ export default function LandingPage() {
           <strong>Coffee <i>&</i> Society</strong>
         </a>
         <nav aria-label="Nội dung bài thuyết trình">
-          <a href="#hop-tac">01. Hợp tác</a>
-          <a href="#ban-chat">02. Bản chất</a>
-          <a href="#ket-luan">03. Kết luận</a>
+          <a className="lp-nav-button" href="#hop-tac">Hợp tác</a>
+          <a className="lp-nav-button" href="#ban-chat">Bản chất</a>
+          <a className="lp-nav-button" href="#ket-luan">Kết luận</a>
         </nav>
         <StartGame compact />
       </header>

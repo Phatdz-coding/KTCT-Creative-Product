@@ -46,8 +46,22 @@
 .lp-brand > span { justify-content: center; width: 40px; height: 40px; color: #ffe7ae; background: #6a4932; border: 1px solid #b68a5e; }
 .lp-brand i { color: #d8b16c; font-weight: 400; }
 .lp-nav nav { gap: 32px; font-size: var(--fs-label); letter-spacing: .08em; }
-.lp-nav nav a { color: #e4d2b8; transition: color .18s ease; }
-.lp-nav nav a:hover { color: #fff; }
+.lp-nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 14px;
+  color: #fffaf0;
+  background: var(--lp-rust);
+  border: 2px solid #71341f;
+  box-shadow: 3px 3px 0 #25170f;
+  font-size: var(--fs-label);
+  font-weight: 800;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.lp-nav-button:hover { color: #fff; background: #b8613e; transform: translate(-2px, -2px); box-shadow: 5px 5px 0 #25170f; }
+.lp-nav-button:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #25170f; }
 .lp-start {
   justify-self: end;
   justify-content: center;
