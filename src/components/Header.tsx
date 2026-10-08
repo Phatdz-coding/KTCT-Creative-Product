@@ -1,4 +1,4 @@
-import { BookOpen, Coffee, Sprout } from "lucide-react";
+import { ArrowLeft, BookOpen, Coffee, Sprout } from "lucide-react";
 
 export default function Header({
   guideOpen,
@@ -23,6 +23,9 @@ export default function Header({
           </span>
         </a>
         <div className="header-actions">
+          <a className="presentation-back" href="#presentation">
+            <ArrowLeft size={16} aria-hidden="true" /> Về phần thuyết trình
+          </a>
           <span className="edition">
             <span /> MÔ PHỎNG KINH TẾ · CHƯƠNG 01
           </span>

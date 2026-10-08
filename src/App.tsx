@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Coffee, LockKeyhole, Settings2 } from "lucide-react";
+import LandingPage from "./components/LandingPage";
 import Header, { ShiftIntroduction } from "./components/Header";
 import ShiftHUD from "./components/ShiftHUD";
 import EconomicHUD from "./components/EconomicHUD";
@@ -16,7 +17,29 @@ import {
 } from "./components/Education";
 import { useSimulation } from "./hooks/useSimulation";
 import { baseline, calculate, clock, money } from "./lib/economics";
+import { viewForHash, type View } from "./lib/view";
+
 export default function App() {
+  const [view, setView] = useState<View>(() => viewForHash(location.hash));
+  const previousView = useRef(view);
+
+  useEffect(() => {
+    const changeView = () => setView(viewForHash(location.hash));
+    addEventListener("hashchange", changeView);
+    return () => removeEventListener("hashchange", changeView);
+  }, []);
+
+  useEffect(() => {
+    if (previousView.current === view) return;
+    previousView.current = view;
+    scrollTo({ top: 0 });
+    requestAnimationFrame(() => document.querySelector<HTMLElement>("main")?.focus());
+  }, [view]);
+
+  return view === "game" ? <BaristaGame /> : <LandingPage />;
+}
+
+function BaristaGame() {
   const [scenario, setScenario] = useState({ ...baseline });
   const [settingsOpen, setSettingsOpen] = useState(false);
   const sim = useSimulation(scenario);
@@ -27,7 +50,7 @@ export default function App() {
   return (
     <>
       <Header guideOpen={guide} onGuide={() => setGuide(!guide)} />
-      <main id="main">
+      <main id="main" tabIndex={-1}>
         <ShiftIntroduction />
         {guide && (
           <aside className="guide" id="game-guide">
